@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:dev": "next build && rm -rf dist && cp -r out dist",
+    "build": "next build && rm -rf dist && cp -r out dist && for d in privacy terms payment view _not-found; do if [ -f \"dist/$d.html\" ] && [ -d \"dist/$d\" ]; then rm -rf \"dist/$d\" && cp \"dist/$d.html\" \"dist/$d\"; fi; done",
+    "build:dev": "next build && rm -rf dist && cp -r out dist && for d in privacy terms payment view _not-found; do if [ -f \"dist/$d.html\" ] && [ -d \"dist/$d\" ]; then rm -rf \"dist/$d\" && cp \"dist/$d.html\" \"dist/$d\"; fi; done",
     "start": "next start",
     "lint": "eslint"
   },
